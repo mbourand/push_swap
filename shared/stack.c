@@ -13,10 +13,10 @@ void	push(t_stack *dest, int val)
 {
 	int i;
 
-	i = dest->size - 1;
-	while (i >= 0)
+	i = dest->size;
+	while (i > 0)
 	{
-		dest->arr[i] = dest->arr[i + 1];
+		dest->arr[i] = dest->arr[i - 1];
 		i--;
 	}
 	dest->arr[0] = val;
@@ -27,6 +27,8 @@ void	pop(t_stack *stack)
 {
 	size_t i;
 
+	if (stack->size == 0)
+		return;
 	i = 0;
 	while (i < stack->size - 1)
 	{

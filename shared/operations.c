@@ -30,19 +30,19 @@ static int rotate_operation(t_stack* stack)
 	if (stack->size < 2)
 		return TRUE;
 	tmp = stack->arr[0];
-	i = 1;
-	while (i < stack->size)
+	i = 0;
+	while (i < stack->size - 1)
 	{
-		stack->arr[i] = stack->arr[i - 1];
+		stack->arr[i] = stack->arr[i + 1];
 		i++;
 	}
-	stack->arr[i] = tmp;
+	stack->arr[stack->size - 1] = tmp;
 	return TRUE;
 }
 
 static int reverse_rotate_operation(t_stack* stack)
 {
-	size_t i;
+	int i;
 	int tmp;
 
 	if (stack->size < 2)
@@ -52,7 +52,7 @@ static int reverse_rotate_operation(t_stack* stack)
 	while (i > 0)
 	{
 		stack->arr[i] = stack->arr[i - 1];
-		i++;
+		i--;
 	}
 	stack->arr[0] = tmp;
 	return TRUE;
