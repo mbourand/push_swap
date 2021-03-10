@@ -2,7 +2,7 @@
 #include "utils.h"
 #include <stdlib.h>
 
-void	check_argument_validity(size_t argc, char **argv)
+void	check_argument_validity(size_t argc, char **argv, int allow_options)
 {
 	size_t	i;
 	int		atoi_success;
@@ -12,6 +12,11 @@ void	check_argument_validity(size_t argc, char **argv)
 		errndie("Error: Not enough arguments.\n");
 	while (i < argc)
 	{
+		if (allow_options && (ft_strcmp(argv[i], "-v") == 0 || ft_strcmp(argv[i], "-c") == 0))
+		{
+			i++;
+			continue;
+		}
 		ft_atoi(argv[i], &atoi_success);
 		if (!atoi_success)
 			errndie("Error: Argument is not a valid integer.\n");
@@ -19,7 +24,7 @@ void	check_argument_validity(size_t argc, char **argv)
 	}
 }
 
-void	set_values(t_stack *stack, size_t argc, char **argv)
+void	set_values(t_stack *stack, size_t argc, char **argv, int allow_options)
 {
 	size_t	i;
 	size_t	j;
@@ -29,6 +34,11 @@ void	set_values(t_stack *stack, size_t argc, char **argv)
 	while (i < argc)
 	{
 		stack->arr[i - 1] = ft_atoi(argv[i], &success);
+		if (allow_options && (ft_strcmp(argv[i], "-v") == 0 || ft_strcmp(argv[i], "-c") == 0))
+		{
+			i++;
+			continue;
+		}
 		stack->size++;
 		if (!success)
 			errndie("Error: Argument is not a valid integer.\n");

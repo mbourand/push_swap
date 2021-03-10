@@ -6,7 +6,7 @@
 /*   By: mbourand <mbourand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 19:32:51 by mbourand          #+#    #+#             */
-/*   Updated: 2021/03/09 16:36:17 by mbourand         ###   ########.fr       */
+/*   Updated: 2021/03/10 18:48:39 by mbourand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,8 @@ int			ft_strcmp(char *s1, char *s2);
 size_t		ft_strlcpy(char *s1, char *s2, size_t len);
 int			freenret(void *ptr, int ret);
 int			ft_min(int a, int b);
+int			ft_sqrt(int n);
+void		ft_putnbr(int nb);
+size_t	ft_numlen(int i, size_t base);
 
 #endif

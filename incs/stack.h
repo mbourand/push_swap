@@ -23,6 +23,6 @@ int		find_nth_smallest(t_stack *stack, size_t n);
 size_t	find_first_in_chunk(t_stack *stack, t_chunk *chunk);
 size_t	find_last_in_chunk(t_stack *stack, t_chunk *chunk);
 size_t	find_biggest(t_stack *stack);
-int		ft_sqrt(int n);
+void	print_stacks(t_stack *a, t_stack *b);
 
 #endif

@@ -9,7 +9,7 @@ static void print_and_launch(char *str, t_stack *a, t_stack *b)
 {
 	ft_putstr(str, 1);
 	ft_putstr("\n", 1);
-	launch_operation(str, a, b);
+	launch_operation(str, a, b, 0);
 }
 
 static int get_nb_to_top(t_stack *a, size_t index)
@@ -83,10 +83,10 @@ int main(int argc, char **argv)
 	t_stack	a;
 	t_stack b;
 
-	check_argument_validity(argc, argv);
+	check_argument_validity(argc, argv, FALSE);
 	init(&a, argc - 1);
 	init(&b, argc - 1);
-	set_values(&a, argc, argv);
+	set_values(&a, argc, argv, FALSE);
 	sort(&a, &b);
 	free(a.arr);
 	free(b.arr);

@@ -6,7 +6,7 @@
 /*   By: mbourand <mbourand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 19:32:46 by mbourand          #+#    #+#             */
-/*   Updated: 2021/03/10 15:31:58 by mbourand         ###   ########.fr       */
+/*   Updated: 2021/03/10 19:04:32 by mbourand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,38 @@
 #include "args.h"
 #include <stdio.h>
 
-int		main(int argc, char **argv)
+static void	set_options(size_t argc, char **argv, int *options)
+{
+	size_t	i;
+
+	i = 1;
+	*options = 0;
+	while (i < argc)
+	{
+		if (ft_strcmp(argv[i], "-v") == 0)
+			*options |= O_VERBOSE;
+		else if (ft_strcmp(argv[i], "-c") == 0)
+			*options |= O_COLOR;
+		i++;
+	}
+}
+
+int			main(int argc, char **argv)
 {
 	t_stack	a;
 	t_stack	b;
 	int		ret;
 	char	*line;
+	int		options;
 
-	check_argument_validity(argc, argv);
+	check_argument_validity(argc, argv, TRUE);
+	set_options(argc, argv, &options);
 	init(&a, argc - 1);
 	init(&b, argc - 1);
-	set_values(&a, argc, argv);
+	set_values(&a, argc, argv, TRUE);
 	while ((ret = get_next_line(0, &line)) > 0)
 	{
-		launch_operation(line, &a, &b);
+		launch_operation(line, &a, &b, options);
 		free(line);
 	}
 	if (ret == -1)

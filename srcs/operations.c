@@ -1,5 +1,6 @@
 #include "utils.h"
 #include "stack.h"
+#include "args.h"
 
 static int	swap_operation(t_stack *stack)
 {
@@ -58,10 +59,11 @@ static int reverse_rotate_operation(t_stack* stack)
 	return TRUE;
 }
 
-void	launch_operation(char *str, t_stack *a, t_stack *b)
+void	launch_operation(char *str, t_stack *a, t_stack *b, int options)
 {
-	int ok = FALSE;
+	int ok;
 
+	ok = FALSE;
 	if (!str)
 		return;
 	if (ft_strcmp(str, "sa") == 0 || ft_strcmp(str, "ss") == 0)
@@ -82,4 +84,6 @@ void	launch_operation(char *str, t_stack *a, t_stack *b)
 		ok = reverse_rotate_operation(b);
 	if (!ok)
 		errndie("Error: Unrecognized operation.\n");
+	if (options & O_VERBOSE)
+		print_stacks(a, b);
 }

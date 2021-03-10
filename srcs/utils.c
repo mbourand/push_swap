@@ -14,6 +14,7 @@
 #include <unistd.h>
 #include <limits.h>
 #include "utils.h"
+#include <stdio.h>
 
 void		errndie(char *str)
 {
@@ -179,4 +180,33 @@ int		ft_sqrt(int n)
 		i++;
 	}
 	return (i);
+}
+
+void	ft_putnbr(int n)
+{
+	unsigned int	u;
+	char			c;
+
+	u = (n < 0 ? -n : n);
+	if (n < 0)
+		write(1, "-", 1);
+	if (u >= 10)
+		ft_putnbr(u / 10);
+	c = u % 10 + '0';
+	write(1, &c, 1);
+}
+
+size_t	ft_numlen(int i, size_t base)
+{
+	size_t			res;
+	unsigned int	u;
+
+	res = i < 0 ? 2 : 1;
+	u = i < 0 ? -i : i;
+	while (u > base - 1)
+	{
+		res++;
+		u /= base;
+	}
+	return (res);
 }
