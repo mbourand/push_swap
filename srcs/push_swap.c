@@ -82,8 +82,6 @@ int main(int argc, char **argv)
 {
 	t_stack	a;
 	t_stack b;
-	int		ret;
-	char	*line;
 
 	check_argument_validity(argc, argv);
 	init(&a, argc - 1);

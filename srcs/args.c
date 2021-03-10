@@ -2,7 +2,7 @@
 #include "utils.h"
 #include <stdlib.h>
 
-void	check_argument_validity(int argc, char **argv)
+void	check_argument_validity(size_t argc, char **argv)
 {
 	size_t	i;
 	int		atoi_success;
@@ -19,7 +19,7 @@ void	check_argument_validity(int argc, char **argv)
 	}
 }
 
-void	set_values(t_stack *stack, int argc, char **argv)
+void	set_values(t_stack *stack, size_t argc, char **argv)
 {
 	size_t	i;
 	size_t	j;
