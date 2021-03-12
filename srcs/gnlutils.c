@@ -6,15 +6,15 @@
 /*   By: mbourand <mbourand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 00:01:27 by mbourand          #+#    #+#             */
-/*   Updated: 2021/03/09 00:02:45 by mbourand         ###   ########.fr       */
+/*   Updated: 2021/03/12 15:08:20 by mbourand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "gnl.h"
 
-size_t  gnllenuntil(const char *s, char c)
+size_t		gnllenuntil(const char *s, char c)
 {
-	size_t i;
+	size_t	i;
 
 	if (!s)
 		return (0);
@@ -24,24 +24,24 @@ size_t  gnllenuntil(const char *s, char c)
 	return (i);
 }
 
-char	*gnldupuntil(const char *s1, char c)
+char		*gnldupuntil(const char *s1, char c)
 {
-		char	*cpy;
-		int		i;
+	char	*cpy;
+	int		i;
 
-		i = 0;
-		if (!(cpy = (char*)malloc(sizeof(char) * (gnllenuntil(s1, '\n') + 1))))
-			exit(1);
-		while (s1[i] && s1[i] != c)
-		{
-			cpy[i] = s1[i];
-			i++;
-		}
-		cpy[i] = 0;
-		return (cpy);
+	i = 0;
+	if (!(cpy = (char*)malloc(sizeof(char) * (gnllenuntil(s1, '\n') + 1))))
+		exit(1);
+	while (s1[i] && s1[i] != c)
+	{
+		cpy[i] = s1[i];
+		i++;
+	}
+	cpy[i] = 0;
+	return (cpy);
 }
 
-char	*gnljoinuntil(char *s1, char const *s2, char c)
+char		*gnljoinuntil(char *s1, char const *s2, char c)
 {
 	char	*res;
 	int		i;

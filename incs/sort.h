@@ -1,33 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   sort.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbourand <mbourand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/12 15:10:50 by mbourand          #+#    #+#             */
-/*   Updated: 2021/03/12 15:29:55 by mbourand         ###   ########.fr       */
+/*   Created: 2021/03/12 15:26:40 by mbourand          #+#    #+#             */
+/*   Updated: 2021/03/12 15:27:48 by mbourand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "utils.h"
-#include "args.h"
-#include "stack.h"
-#include "operations.h"
-#include <limits.h>
-#include <stdio.h>
+#ifndef SORT_H
+# define SORT_H
 
-int			main(int argc, char **argv)
-{
-	t_stack	a;
-	t_stack b;
+# include "stack.h"
 
-	check_argument_validity(argc, argv, FALSE);
-	init(&a, argc - 1);
-	init(&b, argc - 1);
-	set_values(&a, argc, argv, FALSE);
-	sort(&a, &b);
-	free(a.arr);
-	free(b.arr);
-	return (0);
-}
+void	sort(t_stack *a, t_stack *b);
+
+#endif

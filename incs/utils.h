@@ -6,19 +6,19 @@
 /*   By: mbourand <mbourand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 19:32:51 by mbourand          #+#    #+#             */
-/*   Updated: 2021/03/12 14:50:57 by mbourand         ###   ########.fr       */
+/*   Updated: 2021/03/12 14:57:39 by mbourand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef UTILS_H
-#define UTILS_H
+# define UTILS_H
 
-#define TRUE 1
-#define FALSE 0
+# define TRUE 1
+# define FALSE 0
 
-#define BUFF_SIZE 24
+# define BUFF_SIZE 24
 
-#include <stdlib.h>
+# include <stdlib.h>
 
 void		errndie(char *str);
 size_t		ft_strlen(char *str);

@@ -18,7 +18,8 @@ CFLAGS	= -Wall -Wextra -Werror
 SRC_PATH= srcs/
 OBJ_PATH= objs/
 
-SRC_NAME		= args.c gnl.c gnlutils.c operations.c stack.c utils.c
+SRC_NAME		= args.c gnl.c gnlutils.c operations.c stack.c utils.c sort.c \
+				launch_operations.c strutils.c intutils.c
 PUSH_SWAP_MAIN	= push_swap.c
 CHECKER_MAIN	= checker.c
 

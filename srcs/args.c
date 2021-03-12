@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   args.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mbourand <mbourand@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/03/12 15:00:32 by mbourand          #+#    #+#             */
+/*   Updated: 2021/03/12 15:07:00 by mbourand         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "args.h"
 #include "utils.h"
 #include <stdlib.h>
 
-void	check_argument_validity(size_t argc, char **argv, int allow_options)
+void		check_argument_validity(size_t argc, char **argv, int opts_on)
 {
 	size_t	i;
 	int		atoi_success;
@@ -12,7 +24,7 @@ void	check_argument_validity(size_t argc, char **argv, int allow_options)
 		errndie("Error: Not enough arguments.\n");
 	while (i < argc)
 	{
-		if (allow_options && (ft_strcmp(argv[i], "-v") == 0 || ft_strcmp(argv[i], "-c") == 0))
+		if (opts_on && (!ft_strcmp(argv[i], "-v") || !ft_strcmp(argv[i], "-c")))
 		{
 			i++;
 			continue;
@@ -24,26 +36,11 @@ void	check_argument_validity(size_t argc, char **argv, int allow_options)
 	}
 }
 
-void	set_values(t_stack *stack, size_t argc, char **argv, int allow_options)
+static void	check_duplicated(t_stack *stack)
 {
-	size_t	i;
-	size_t	j;
-	int		success;
+	size_t i;
+	size_t j;
 
-	i = 1;
-	while (i < argc)
-	{
-		if (allow_options && (ft_strcmp(argv[i], "-v") == 0 || ft_strcmp(argv[i], "-c") == 0))
-		{
-			i++;
-			continue;
-		}
-		stack->arr[i - 1] = ft_atoi(argv[i], &success);
-		stack->size++;
-		if (!success)
-			errndie("Error: Argument is not a valid integer.\n");
-		i++;
-	}
 	i = 0;
 	while (i < stack->size)
 	{
@@ -56,4 +53,26 @@ void	set_values(t_stack *stack, size_t argc, char **argv, int allow_options)
 		}
 		i++;
 	}
+}
+
+void		set_values(t_stack *stack, size_t argc, char **argv, int opts_on)
+{
+	size_t	i;
+	int		success;
+
+	i = 1;
+	while (i < argc)
+	{
+		if (opts_on && (!ft_strcmp(argv[i], "-v") || !ft_strcmp(argv[i], "-c")))
+		{
+			i++;
+			continue;
+		}
+		stack->arr[i - 1] = ft_atoi(argv[i], &success);
+		stack->size++;
+		if (!success)
+			errndie("Error: Argument is not a valid integer.\n");
+		i++;
+	}
+	check_duplicated(stack);
 }

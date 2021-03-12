@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   stack.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mbourand <mbourand@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/03/12 15:31:14 by mbourand          #+#    #+#             */
+/*   Updated: 2021/03/12 15:32:15 by mbourand         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdlib.h>
 #include "stack.h"
 #include "utils.h"
@@ -58,7 +70,7 @@ size_t	find_last_in_chunk(t_stack *stack, t_chunk *chunk)
 	return (-1);
 }
 
-void	init(t_stack* stack, size_t size)
+void	init(t_stack *stack, size_t size)
 {
 	stack->size = 0;
 	if (!(stack->arr = malloc(sizeof(int) * size)))
@@ -84,7 +96,7 @@ void	erase(t_stack *stack, size_t index)
 	size_t i;
 
 	if (stack->size == 0 || index >= stack->size)
-		return;
+		return ;
 	i = index;
 	while (i < stack->size - 1)
 	{
@@ -166,7 +178,7 @@ size_t	find_nth_smallest_index(t_stack *stack, size_t n)
 	return (-1);
 }
 
-size_t		find_biggest(t_stack *stack)
+size_t	find_biggest(t_stack *stack)
 {
 	size_t	i;
 	size_t	max;
@@ -180,4 +192,35 @@ size_t		find_biggest(t_stack *stack)
 		i++;
 	}
 	return (max);
+}
+
+int		get_nb_to_top(t_stack *a, size_t index)
+{
+	return (ft_min(index, a->size - index));
+}
+
+void	put_on_top_of_a(t_stack *a, t_stack *b, size_t index)
+{
+	size_t	i;
+
+	i = 0;
+	if (index < a->size - index)
+		while (i++ < index)
+			print_and_launch("ra", a, b);
+	else
+		while (i++ < a->size - index)
+			print_and_launch("rra", a, b);
+}
+
+void	put_on_top_of_b(t_stack *a, t_stack *b, size_t index)
+{
+	size_t	i;
+
+	i = 0;
+	if (index < b->size - index)
+		while (i++ < index)
+			print_and_launch("rb", a, b);
+	else
+		while (i++ < b->size - index)
+			print_and_launch("rrb", a, b);
 }
