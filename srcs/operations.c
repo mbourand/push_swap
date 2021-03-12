@@ -6,7 +6,7 @@
 /*   By: mbourand <mbourand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 15:08:36 by mbourand          #+#    #+#             */
-/*   Updated: 2021/03/12 15:32:53 by mbourand         ###   ########.fr       */
+/*   Updated: 2021/03/12 15:39:01 by mbourand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "stack.h"
 #include "args.h"
 
-static int		swap_operation(t_stack *stack)
+int		swap_operation(t_stack *stack)
 {
 	int	tmp;
 
@@ -26,7 +26,7 @@ static int		swap_operation(t_stack *stack)
 	return (TRUE);
 }
 
-static int		push_operation(t_stack *src, t_stack *dest)
+int		push_operation(t_stack *src, t_stack *dest)
 {
 	if (src->size == 0)
 		return (TRUE);
@@ -35,7 +35,7 @@ static int		push_operation(t_stack *src, t_stack *dest)
 	return (TRUE);
 }
 
-static int		rotate_operation(t_stack *stack)
+int		rotate_operation(t_stack *stack)
 {
 	size_t	i;
 	int		tmp;
@@ -53,7 +53,7 @@ static int		rotate_operation(t_stack *stack)
 	return (TRUE);
 }
 
-static int		reverse_rotate_operation(t_stack *stack)
+int		reverse_rotate_operation(t_stack *stack)
 {
 	int		i;
 	int		tmp;

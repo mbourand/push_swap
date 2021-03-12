@@ -6,11 +6,12 @@
 /*   By: mbourand <mbourand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 15:33:59 by mbourand          #+#    #+#             */
-/*   Updated: 2021/03/12 15:34:42 by mbourand         ###   ########.fr       */
+/*   Updated: 2021/03/12 15:41:16 by mbourand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
+#include <unistd.h>
 
 char		*ft_strjoin(char *s1, char *s2)
 {

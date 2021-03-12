@@ -6,12 +6,13 @@
 /*   By: mbourand <mbourand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 15:35:55 by mbourand          #+#    #+#             */
-/*   Updated: 2021/03/12 15:37:46 by mbourand         ###   ########.fr       */
+/*   Updated: 2021/03/12 15:41:26 by mbourand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
 #include <limits.h>
+#include <unistd.h>
 
 int			is_integer(char *str)
 {

@@ -6,13 +6,14 @@
 /*   By: mbourand <mbourand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 15:31:14 by mbourand          #+#    #+#             */
-/*   Updated: 2021/03/12 15:32:15 by mbourand         ###   ########.fr       */
+/*   Updated: 2021/03/12 15:40:15 by mbourand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "stack.h"
 #include "utils.h"
+#include "operations.h"
 
 void	print_stacks(t_stack *a, t_stack *b)
 {

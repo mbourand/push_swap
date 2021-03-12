@@ -6,16 +6,14 @@
 /*   By: mbourand <mbourand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 15:10:50 by mbourand          #+#    #+#             */
-/*   Updated: 2021/03/12 15:29:55 by mbourand         ###   ########.fr       */
+/*   Updated: 2021/03/12 15:41:52 by mbourand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
 #include "args.h"
 #include "stack.h"
-#include "operations.h"
-#include <limits.h>
-#include <stdio.h>
+#include "sort.h"
 
 int			main(int argc, char **argv)
 {

@@ -6,12 +6,13 @@
 /*   By: mbourand <mbourand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 15:32:48 by mbourand          #+#    #+#             */
-/*   Updated: 2021/03/12 15:33:16 by mbourand         ###   ########.fr       */
+/*   Updated: 2021/03/12 15:38:40 by mbourand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "operations.h"
 #include "utils.h"
+#include "args.h"
 
 void			launch_operation(char *str, t_stack *a, t_stack *b, int options)
 {

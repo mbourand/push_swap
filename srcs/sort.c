@@ -6,12 +6,13 @@
 /*   By: mbourand <mbourand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 15:25:53 by mbourand          #+#    #+#             */
-/*   Updated: 2021/03/12 15:28:08 by mbourand         ###   ########.fr       */
+/*   Updated: 2021/03/12 15:41:06 by mbourand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
 #include "sort.h"
+#include "operations.h"
 
 static void	three_sort(t_stack *a, t_stack *b)
 {
