@@ -33,12 +33,12 @@ void	set_values(t_stack *stack, size_t argc, char **argv, int allow_options)
 	i = 1;
 	while (i < argc)
 	{
-		stack->arr[i - 1] = ft_atoi(argv[i], &success);
 		if (allow_options && (ft_strcmp(argv[i], "-v") == 0 || ft_strcmp(argv[i], "-c") == 0))
 		{
 			i++;
 			continue;
 		}
+		stack->arr[i - 1] = ft_atoi(argv[i], &success);
 		stack->size++;
 		if (!success)
 			errndie("Error: Argument is not a valid integer.\n");

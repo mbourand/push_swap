@@ -137,6 +137,35 @@ int		find_nth_smallest(t_stack *stack, size_t n)
 	return (0);
 }
 
+size_t	find_nth_smallest_index(t_stack *stack, size_t n)
+{
+	t_stack	cpy;
+	size_t	i;
+	size_t	min;
+
+	i = 0;
+	cpy.size = stack->size;
+	if (!(cpy.arr = malloc(sizeof(int) * stack->size)))
+		errndie("Error: Allocation failed.\n");
+	while (i < stack->size)
+	{
+		cpy.arr[i] = stack->arr[i];
+		i++;
+	}
+	while (n-- > 0)
+	{
+		min = 0;
+		i = 0;
+		while (++i < cpy.size)
+			if (cpy.arr[i] < cpy.arr[min])
+				min = i;
+		if (n == 0)
+			return (freenret(cpy.arr, min));
+		erase(&cpy, min);
+	}
+	return (-1);
+}
+
 size_t		find_biggest(t_stack *stack)
 {
 	size_t	i;

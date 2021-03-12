@@ -20,6 +20,7 @@ void	erase(t_stack *stack, size_t index);
 void	init(t_stack* stack, size_t size);
 int		is_sorted(t_stack *stack);
 int		find_nth_smallest(t_stack *stack, size_t n);
+size_t	find_nth_smallest_index(t_stack *stack, size_t n);
 size_t	find_first_in_chunk(t_stack *stack, t_chunk *chunk);
 size_t	find_last_in_chunk(t_stack *stack, t_chunk *chunk);
 size_t	find_biggest(t_stack *stack);

@@ -6,7 +6,7 @@
 /*   By: mbourand <mbourand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 19:32:51 by mbourand          #+#    #+#             */
-/*   Updated: 2021/03/10 18:48:39 by mbourand         ###   ########.fr       */
+/*   Updated: 2021/03/12 14:50:57 by mbourand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,6 @@ int			freenret(void *ptr, int ret);
 int			ft_min(int a, int b);
 int			ft_sqrt(int n);
 void		ft_putnbr(int nb);
-size_t	ft_numlen(int i, size_t base);
+size_t		ft_numlen(int i, size_t base);
 
 #endif

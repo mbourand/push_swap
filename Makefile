@@ -44,12 +44,12 @@ all: $(PUSH_SWAP_NAME) $(CHECKER_NAME)
 
 $(PUSH_SWAP_NAME): $(OBJ) $(PUSH_SWAP_MAIN_OBJ)
 	@echo "$(RED)[push_swap] : $(DEF)Compiling..."
-	$(CC) $(CFLAGS) -o $(PUSH_SWAP_NAME) $(OBJ) $(PUSH_SWAP_MAIN_OBJ) $(INC)
+	@$(CC) $(CFLAGS) -o $(PUSH_SWAP_NAME) $(OBJ) $(PUSH_SWAP_MAIN_OBJ) $(INC)
 	@echo "$(RED)[push_swap] : $(DEF)Compilation $(GRN)[OK]$(DEF)"
 
 $(CHECKER_NAME): $(OBJ) $(CHECKER_MAIN_OBJ)
 	@echo "$(RED)[push_swap] : $(DEF)Compiling..."
-	$(CC) $(CFLAGS) -o $(CHECKER_NAME) $(OBJ) $(CHECKER_MAIN_OBJ) $(INC)
+	@$(CC) $(CFLAGS) -o $(CHECKER_NAME) $(OBJ) $(CHECKER_MAIN_OBJ) $(INC)
 	@echo "$(RED)[push_swap] : $(DEF)Compilation $(GRN)[OK]$(DEF)"
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c

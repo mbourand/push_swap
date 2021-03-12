@@ -23,10 +23,11 @@ Les opérations autorisées pour trier la liste sont :
 <br/>
 
 ## Les deux exécutables
-Les tâches de ce projet sont réparties en deux exécutables : **checker** et **push_swap** :
+Les tâches de ce projet sont réparties en deux exécutables
 
-**push_swap** est l'exécutable qui se charge de la recherche des opérations à effectuer.
-**checker** est celui qui vérifie si, après les opérations de push_swap, la liste est bien triée, il propose aussi des informations avec l'option **-v**
+- **push_swap** est l'exécutable qui se charge de la recherche des opérations à effectuer.
+
+- **checker** est celui qui vérifie si, après les opérations de push_swap, la liste est bien triée, il propose aussi des informations avec l'option **-v**
 
 <br/>
 
@@ -34,6 +35,6 @@ Les tâches de ce projet sont réparties en deux exécutables : **checker** et *
 1. Clonez le dépôt [ ```git clone https://www.github.com/mbourand/push_swap``` ]
 2. Compilez le projet [ ```make``` ]
 3. Lancez le programme
-   - [ ```./push_swap -52 5 87 69 15 28 ...``` ]
-   - Pour connaître le nombre d'opérations [ ```./push_swap -52 5 87 69 | wc -l``` ]
-   - Pour vérifier si la liste est triée [ ```ARG="-52 5 87 69 ..."; ./push_swap $ARG | ./checker [-v] $ARG``` ]
+   - [ ```./push_swap -52 5 87 69 15 ...``` ]
+   - Pour connaître le nombre d'opérations [ ```./push_swap -52 5 87 69 15 ... | wc -l``` ]
+   - Pour vérifier si la liste est triée [ ```ARG="-52 5 87 69 15 ..."; ./push_swap $ARG | ./checker [-v] $ARG``` ]
