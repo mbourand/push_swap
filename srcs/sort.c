@@ -3,16 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbourand <mbourand@student.42.fr>          +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 15:25:53 by mbourand          #+#    #+#             */
-/*   Updated: 2021/03/12 15:41:06 by mbourand         ###   ########.fr       */
+/*   Updated: 2021/03/15 15:25:43 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
 #include "sort.h"
 #include "operations.h"
+
+static void	sort_chunk(t_stack *a, t_stack *b, t_chunk chunk)
+{
+	int first;
+	int last;
+	int todo;
+
+	while (a->size)
+	{
+		first = find_first_in_chunk(a, &chunk);
+		last = find_last_in_chunk(a, &chunk);
+		if (first == -1 || last == -1)
+			break ;
+		todo = (ft_min(first, a->size - first) <
+			ft_min(last, a->size - last) ? first : last);
+		put_on_top_of_a(a, b, todo);
+		print_and_launch("pb", a, b);
+	}
+}
 
 static void	three_sort(t_stack *a, t_stack *b)
 {
@@ -44,9 +63,6 @@ static void	big_sort(t_stack *a, t_stack *b)
 {
 	int		size_left;
 	t_chunk	chunk;
-	int		first;
-	int		last;
-	int		todo;
 
 	if (is_sorted(a))
 		return ;
@@ -57,17 +73,7 @@ static void	big_sort(t_stack *a, t_stack *b)
 		chunk.min = find_nth_smallest(a, a->size - size_left + 1);
 		chunk.max = find_nth_smallest(a,
 			ft_min(a->size, a->size - size_left + chunk.size));
-		while (a->size)
-		{
-			first = find_first_in_chunk(a, &chunk);
-			last = find_last_in_chunk(a, &chunk);
-			if (first == -1 || last == -1)
-				break ;
-			todo = (get_nb_to_top(a, first) < get_nb_to_top(a, last) ?
-				first : last);
-			put_on_top_of_a(a, b, todo);
-			print_and_launch("pb", a, b);
-		}
+		sort_chunk(a, b, chunk);
 		size_left -= chunk.size;
 	}
 	while (b->size)
@@ -106,7 +112,7 @@ void		sort(t_stack *a, t_stack *b)
 	}
 	else if (a->size == 3)
 		three_sort(a, b);
-	else if (a->size < 6)
+	else if (a->size < 8)
 		small_sort(a, b);
 	else
 		big_sort(a, b);

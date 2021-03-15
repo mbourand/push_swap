@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   intutils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbourand <mbourand@student.42.fr>          +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 15:35:55 by mbourand          #+#    #+#             */
-/*   Updated: 2021/03/12 15:41:26 by mbourand         ###   ########.fr       */
+/*   Updated: 2021/03/15 14:26:05 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int			is_integer(char *str)
 {
 	size_t i;
 
-	if (!str)
+	if (!str || ft_strlen(str) == 0)
 		return (FALSE);
 	i = (str[0] == '+' || str[0] == '-');
 	while (str[i])
